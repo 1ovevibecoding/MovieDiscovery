@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Movie Discovery - Khám phá thế giới điện ảnh">
+    <title>Movie Discovery — Khám phá phim hay</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="header" id="header">
+        <a href="#" class="logo" aria-label="Trang chủ">
+            <img src="images/377b811c-ce9d-452e-8bad-d33bb2148d1f.jpg" alt="MovieDiscovery" class="logo-img logo-dark">
+            <img src="images/f35ff9af-b06f-4f6b-856e-b0c8817d7d62.jpg" alt="MovieDiscovery" class="logo-img logo-light">
+        </a>
+
+        <div class="search-wrapper">
+            <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <input type="text" id="search-input" placeholder="Tìm kiếm phim..." autocomplete="off">
+        </div>
+
+        <button class="theme-btn" id="theme-btn" aria-label="Chuyển đổi giao diện sáng/tối">
+            <svg class="theme-icon theme-icon-moon" id="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            <svg class="theme-icon theme-icon-sun" id="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        </button>
+    </header>
+
+    <div class="app-layout">
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <h3 class="sidebar-title">Thể loại</h3>
+                <button class="clear-filters-btn hidden" id="clear-filters">Xoá lọc</button>
+            </div>
+            <div class="genre-list" id="genre-filters"></div>
+        </aside>
+
+        <main class="main-content">
+            <div class="content-header">
+                <h2 class="section-title" id="section-title">Phim phổ biến</h2>
+                <span class="movie-count" id="movie-count"></span>
+            </div>
+
+            <div class="movie-grid" id="movie-grid"></div>
+
+            <div id="no-results" class="empty-state hidden">
+                <div class="empty-icon">🎭</div>
+                <p class="empty-text">Không tìm thấy phim nào</p>
+                <p class="empty-sub">Thử từ khóa khác hoặc bỏ bớt bộ lọc</p>
+            </div>
+        </main>
+    </div>
+
+    <div id="movie-modal" class="modal-overlay">
+        <div class="modal" role="dialog" aria-modal="true">
+            <button class="modal-close" id="close-modal" aria-label="Đóng">&times;</button>
+            <div class="modal-body" id="modal-body"></div>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
