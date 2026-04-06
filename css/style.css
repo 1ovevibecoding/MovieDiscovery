@@ -81,17 +81,25 @@ body {
     align-items: center;
     text-decoration: none;
     flex-shrink: 0;
+    position: relative;
+    width: 160px;
+    height: 40px;
 }
 .logo-img {
     height: 40px;
     width: auto;
     object-fit: contain;
-    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    transition: opacity 0.4s ease;
+    mix-blend-mode: lighten;
 }
-[data-theme="dark"] .logo-dark  { display: block; mix-blend-mode: lighten; }
-[data-theme="dark"] .logo-light { display: none;  }
-[data-theme="light"] .logo-dark  { display: none;  }
-[data-theme="light"] .logo-light { display: block; mix-blend-mode: darken; }
+.logo-light { mix-blend-mode: darken; }
+[data-theme="dark"] .logo-dark  { opacity: 1; }
+[data-theme="dark"] .logo-light { opacity: 0; }
+[data-theme="light"] .logo-dark  { opacity: 0; }
+[data-theme="light"] .logo-light { opacity: 1; }
 
 .search-wrapper {
     position: relative;
@@ -466,8 +474,17 @@ body {
     color: var(--text-secondary);
     margin-bottom: 1rem;
 }
+.modal-meta span {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+}
 .modal-meta .rating-badge {
     color: #fbbf24;
+}
+.modal-meta .meta-date svg,
+.modal-meta .rating-badge svg {
+    flex-shrink: 0;
 }
 
 .modal-genres {

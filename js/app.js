@@ -4,6 +4,10 @@ const IMG     = 'https://image.tmdb.org/t/p/w500';
 const IMG_LG  = 'https://image.tmdb.org/t/p/original';
 const PLACEHOLDER = 'https://placehold.co/400x600/1a1a1f/636366?text=No+Poster';
 
+const SVG_STAR = '<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>';
+const SVG_CALENDAR = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>';
+const SVG_FIRE = '<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 23c-3.87 0-7-3.13-7-7 0-2.38 1.19-4.47 3-5.74C8 10.26 8.5 9.5 9 8c.38 1.62 1.5 3 3 4 1.5-2 2-4 2-6 3.5 2.5 5 6 5 10 0 3.87-3.13 7-7 7z"/></svg>';
+
 let popularMovies = [];
 let displayMovies = [];
 let genreMap      = {};
@@ -139,8 +143,8 @@ function renderMovies(movies) {
             <div class="card-poster-wrap">
                 <img src="${poster}" alt="${movie.title}" class="card-poster" loading="lazy"
                      onerror="this.src='${PLACEHOLDER}'">
-                <span class="card-rating">⭐ ${rating}</span>
-                ${isHot ? '<span class="badge-hot">🔥 Hot</span>' : ''}
+                <span class="card-rating">${SVG_STAR} ${rating}</span>
+                ${isHot ? `<span class="badge-hot">${SVG_FIRE} Hot</span>` : ''}
             </div>
             <div class="card-info">
                 <h3 class="card-title">${movie.title}</h3>
@@ -218,8 +222,8 @@ async function openModal(movieId) {
             <div class="modal-info">
                 <h2 class="modal-title">${m.title}</h2>
                 <div class="modal-meta">
-                    <span>📅 ${year}</span>
-                    <span class="rating-badge">⭐ ${rating} / 10</span>
+                    <span class="meta-date">${SVG_CALENDAR} ${year}</span>
+                    <span class="rating-badge">${SVG_STAR} ${rating} / 10</span>
                 </div>
                 <div class="modal-genres">${genres}</div>
                 <p class="modal-desc">${desc}</p>
