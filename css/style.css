@@ -88,10 +88,10 @@ body {
     object-fit: contain;
     display: block;
 }
-[data-theme="dark"] .logo-dark  { display: block; }
+[data-theme="dark"] .logo-dark  { display: block; mix-blend-mode: lighten; }
 [data-theme="dark"] .logo-light { display: none;  }
 [data-theme="light"] .logo-dark  { display: none;  }
-[data-theme="light"] .logo-light { display: block; }
+[data-theme="light"] .logo-light { display: block; mix-blend-mode: darken; }
 
 .search-wrapper {
     position: relative;
