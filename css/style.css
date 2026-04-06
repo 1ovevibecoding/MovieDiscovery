@@ -133,6 +133,30 @@ body {
     background: var(--bg-secondary);
 }
 
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.req-link {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.55rem 1rem;
+    border-radius: 9999px;
+    background: var(--accent-soft);
+    color: var(--accent);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: all var(--transition-fast);
+}
+.req-link:hover {
+    background: var(--accent);
+    color: #fff;
+}
+
 .theme-btn {
     width: 40px; height: 40px;
     border-radius: 50%;
