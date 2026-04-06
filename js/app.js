@@ -25,6 +25,9 @@ const $closeModal   = document.getElementById('close-modal');
 const $sectionTitle = document.getElementById('section-title');
 const $movieCount   = document.getElementById('movie-count');
 const $clearFilters = document.getElementById('clear-filters');
+const $sidebarToggle = document.getElementById('sidebar-toggle');
+const $sidebar      = document.getElementById('sidebar');
+const $appLayout    = document.querySelector('.app-layout');
 
 async function tmdbFetch(endpoint) {
     const sep = endpoint.includes('?') ? '&' : '?';
@@ -258,8 +261,17 @@ function initTheme() {
     });
 }
 
+function initSidebar() {
+    $sidebarToggle.addEventListener('click', () => {
+        $sidebar.classList.toggle('collapsed');
+        $appLayout.classList.toggle('sidebar-hidden');
+        $sidebarToggle.classList.toggle('active');
+    });
+}
+
 async function initApp() {
     initTheme();
+    initSidebar();
     showSkeletons();
     await Promise.all([fetchGenres(), fetchPopularMovies()]);
     renderGenres();
